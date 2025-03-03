@@ -78,7 +78,7 @@ const PersonalInfoForm = ({ resumeData, setResumeData }: EditorFormProps) => {
                 <FormItem>
                   <FormLabel>First Name</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} autoFocus />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
