@@ -53,7 +53,7 @@ const SummaryForm = ({ resumeData, setResumeData }: EditorFormProps) => {
                 <FormControl>
                   <Textarea
                     {...field}
-                    rows={4}
+                    rows={6}
                     placeholder="A brief, engaging message about yourself."
                   />
                 </FormControl>
