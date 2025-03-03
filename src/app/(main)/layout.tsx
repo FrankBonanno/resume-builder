@@ -3,9 +3,9 @@ import Navbar from "./Navbar";
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <div>{children}</div>
+      <>{children}</>
     </div>
   );
 };
