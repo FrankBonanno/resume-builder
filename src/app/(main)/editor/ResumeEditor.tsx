@@ -1,16 +1,16 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import GeneralInfoForm from "./forms/GeneralInfoForm";
-import PersonalInfoForm from "./forms/PersonalInfoForm";
 import { useSearchParams } from "next/navigation";
 import { steps } from "./steps";
 import Breadcrumbs from "./Breadcrumbs";
 import Footer from "./Footer";
+import { useState } from "react";
+import { ResumeValues } from "@/lib/validation";
 
 const ResumeEditor = () => {
   const searchParams = useSearchParams();
+
+  const [resumeData, setResumeData] = useState<ResumeValues>({});
 
   const currentStep = searchParams.get("step") || steps[0].key;
 
@@ -40,7 +40,12 @@ const ResumeEditor = () => {
         <div className="absolute bottom-0 top-0 flex w-full">
           <div className="w-full space-y-6 overflow-y-auto p-3 md:w-1/2">
             <Breadcrumbs currentStep={currentStep} setCurrentStep={setStep} />
-            {FormComponent && <FormComponent />}
+            {FormComponent && (
+              <FormComponent
+                resumeData={resumeData}
+                setResumeData={setResumeData}
+              />
+            )}
           </div>
 
           <div className="grow md:border-r" />
